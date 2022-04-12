@@ -2,36 +2,23 @@
 
 class Car
 {
-    private bool hasParkBrake();
+    private bool $hasParkBrake = true;
 
-    public function parkBrake(boolean $brake)
+    public function setParkBrake(bool $isSet): void
     {
-        if (hasParkBrake === true){
-            throw new Exception('Homer le frein à main !!');
+        $this->hasParkBrake = $isSet;
+    }
+
+    public function start(): void
+    {
+        try {
+            if ($this->hasParkBrake) {
+                throw new Exception('Homer réfléchit voyons ... !! ');
+            }
+        } catch (Exception $e) {
+            $this->setParkBrake(false);
+        } finally {
+            echo "En voiture simone";
         }
-        return "false";
     }
-
-    try{
-        parkBrake = 
-}catch(Exception $e){
-var_dump($e);
-}
-
-echo 'coucou';
-}
-
-
-public function setParkBrake(bool $currentBrake):
-{
-    if($currentSpeed >= 0) {
-        $this->currentSpeed = $currentSpeed;
-    }
-}
-
-public function start(): string // Définition de FORWARD
-{
-    $this->currentSpeed = 50;
-
-    return "Go !";
 }
