@@ -9,16 +9,16 @@ class Car
         $this->hasParkBrake = $isSet;
     }
 
-    public function start(): void
+    public function start(): bool
     {
-        try {
-            if ($this->hasParkBrake) {
-                throw new Exception('Homer réfléchit voyons ... !! ');
-            }
-        } catch (Exception $e) {
-            $this->setParkBrake(false);
-        } finally {
-            echo "En voiture simone";
+
+        if ($this->hasParkBrake === true) {
+            throw new Exception('Homer réfléchit voyons ... !! ');
+
         }
+
+        return $this->hasParkBrake === false;
     }
+
 }
+
